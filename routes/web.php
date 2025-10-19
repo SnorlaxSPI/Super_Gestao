@@ -21,3 +21,13 @@ Route::prefix('/app')->group(function () {
     return 'Produtos';
   })->name('app.produtos');
 });
+
+Route::get('/rota1', function () {
+  //return redirect()->route('site.index');
+  echo 'Rota 1';
+})->name('site.rota1');
+
+Route::get('/rota2', function () {
+  return redirect()->route('site.rota1');
+  //echo 'Rota 2';
+})->name('site.rota2');
