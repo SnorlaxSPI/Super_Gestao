@@ -31,3 +31,9 @@ Route::get('/rota2', function () {
   return redirect()->route('site.rota1');
   //echo 'Rota 2';
 })->name('site.rota2');
+
+Route::get('/teste/{p1}/{p2}', [App\Http\Controllers\TesteController::class, 'teste'])->name('teste');
+
+Route::fallback(function () {
+  echo 'A rota acessada não existe. <a href="' . route('site.index') . '">Clique aqui</a> para ir para a página inicial.';
+});
