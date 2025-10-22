@@ -1,21 +1,18 @@
 <h3>Fornecedores</h3>
 
 @php
-    /*
-  if () {
 
-  } elseif() {
-
-  } else {
-
-  }
-  */
 @endphp
 
-@if (count($fornecedores) >= 0 && count($fornecedores) < 10)
-    <h4>Existem poucos fornecedores cadastrados</h4>
-@elseif (count($fornecedores) >= 10 && count($fornecedores) < 50)
-    <h4>Existem vários fornecedores cadastrados</h4>
+Fornecedor: {{ $fornecedores[0]['nome'] }} <br>
+Status: {{ $fornecedores[0]['status'] }} <br>
+
+@if ($fornecedores[0]['status'] == 'S')
+    Fornecedor Ativo
 @else
-    <h4>Existem muitos fornecedores cadastrados</h4>
+    Fornecedor Inativo
 @endif
+<br>
+@unless ($fornecedores[0]['status'] == 'S')
+    Fornecedor Inativo no unless
+@endunless
