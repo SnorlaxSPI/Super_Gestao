@@ -4,8 +4,13 @@
 
 @endphp
 
-Fornecedor: {{ $fornecedores[0]['nome'] }} <br>
-Status: {{ $fornecedores[0]['status'] }} <br>
+@isset($fornecedores)
+    Fornecedor: {{ $fornecedores[0]['nome'] }} <br>
+    Status: {{ $fornecedores[0]['status'] }} <br>
+    @isset($fornecedores[0]['cnpj'])
+        CNPJ: {{ $fornecedores[0]['cnpj'] ?? 'CNPJ não informado' }} <br>
+    @endisset
+@endisset
 
 @if ($fornecedores[0]['status'] == 'S')
     Fornecedor Ativo
@@ -13,6 +18,6 @@ Status: {{ $fornecedores[0]['status'] }} <br>
     Fornecedor Inativo
 @endif
 <br>
-@unless ($fornecedores[0]['status'] == 'S')
+@unless ($fornecedores[1]['status'] == 'S')
     Fornecedor Inativo no unless
 @endunless
