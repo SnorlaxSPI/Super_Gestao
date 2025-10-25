@@ -7,12 +7,14 @@
 @isset($fornecedores)
     <p><b>Listagem de fornecedores</b></p>
 
-    @for ($i = 0; isset($fornecedores[$i]); ++$i)
+    @php $i = 0; @endphp
+    @while (isset($fornecedores[$i]))
         Fornecedor: {{ $fornecedores[$i]['nome'] }} <br>
         Status: {{ $fornecedores[$i]['status'] }} <br>
         CNPJ: {{ $fornecedores[$i]['cnpj'] ?? 'CNPJ não informado' }} <br>
         Telefone: ({{ $fornecedores[$i]['ddd'] ?? 'DDD não informado' }})
         {{ $fornecedores[$i]['telefone'] ?? 'Telefone não informado' }} <br>
         <hr>
-    @endfor
+        @php $i++; @endphp
+    @endwhile
 @endisset
