@@ -7,14 +7,12 @@
 @isset($fornecedores)
     <p><b>Listagem de fornecedores</b></p>
 
-    @php $i = 0; @endphp
-    @while (isset($fornecedores[$i]))
-        Fornecedor: {{ $fornecedores[$i]['nome'] }} <br>
-        Status: {{ $fornecedores[$i]['status'] }} <br>
-        CNPJ: {{ $fornecedores[$i]['cnpj'] ?? 'CNPJ não informado' }} <br>
-        Telefone: ({{ $fornecedores[$i]['ddd'] ?? 'DDD não informado' }})
-        {{ $fornecedores[$i]['telefone'] ?? 'Telefone não informado' }} <br>
+    @foreach ($fornecedores as $indice => $fornecedor)
+        Fornecedor: {{ $fornecedor['nome'] }} <br>
+        Status: {{ $fornecedor['status'] }} <br>
+        CNPJ: {{ $fornecedor['cnpj'] ?? 'CNPJ não informado' }} <br>
+        Telefone: ({{ $fornecedor['ddd'] ?? 'DDD não informado' }})
+        {{ $fornecedor['telefone'] ?? 'Telefone não informado' }} <br>
         <hr>
-        @php $i++; @endphp
-    @endwhile
+    @endforeach
 @endisset
